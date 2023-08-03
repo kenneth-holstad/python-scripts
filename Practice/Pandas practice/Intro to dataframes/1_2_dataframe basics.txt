@@ -1,0 +1,33 @@
+more general note: you can initialize to multiple variables at once:
+i.e. rows, columns = df.shape()
+rows, columns # to display
+
+LOOKS LIKE df['column'] and df.column work the same (however you must use the former if there are spaces in the column name)
+
+import pandas as pd
+df = pd.read_csv("file.csv")
+
+df.head() displays top 5 rows df.head(number) displays top number
+df.tail() is same but for bottom rows
+df.shape() to show rows, columns
+
+df['column'] displays column values with their index (defaults as its position 0-x) with the column name and data type
+type(df['column']) displays data type - which should be pandas.series?
+df[['column1','column2','column3']] to display particular columns
+
+Operations:
+df['column'].max() to display max value in column - other functions min, mean, std (standard dev)
+df.describe() shows many of these statistics for each numerical column
+df[df['column']>32] to show part of dataframe where condition is met
+  to show particular maximum or other condition use df[df.column==df.column.max()]
+    to show multiple columns - df[['column1','column2']][df.column==df.column.max()]
+View more operations online http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
+
+Display index df.index
+Index by default will just be the position number starting from 0
+Can change to be one of the columns with df.set_index('column', inplace=True)
+  (without inplace it'll give a new dataframe instead of modifying the existing dataframe)
+Setting index lets you run some functions off of the Index
+  i.e. df.loc['value'] displays data by column at the specified row
+df.reset_index(inplace=True) clears the index, sets back to original position-based index
+  df.loc['value'] will still work if your index isn't unique, it'll return multiple rows
