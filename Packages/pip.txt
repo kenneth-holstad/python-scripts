@@ -1,0 +1,9 @@
+# Documenting pip installations done via courses or elsewhere
+
+pip install pyfiglet
+pip install requests
+pip install emoji
+pip install inflect
+pip install requests
+pip install cowsay
+pip install pytest
