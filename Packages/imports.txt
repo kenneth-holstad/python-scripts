@@ -6,3 +6,6 @@ from pyfiglet import Figlet
 import sys
 import random
 import sys
+import requests
+import json
+import pytest
