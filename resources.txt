@@ -1,0 +1,8 @@
+Neural Networks and Deep Learning online book:
+http://neuralnetworksanddeeplearning.com/
+
+
+3Blue1Brown's youtube videos for Neural Networks:
+https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
+Written form:
+https://www.3blue1brown.com/?topic=neural-networks
