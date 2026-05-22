@@ -1,0 +1,10 @@
+Some useful conda commands
+
+conda list
+conda env list
+conda activate base-ds
+
+conda install package-name
+conda update --all
+
+conda create --name newenv --clone oldenv
