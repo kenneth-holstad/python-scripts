@@ -6,6 +6,9 @@ Added many new features like decimal conversion, is_open
 """
 
 from decimal import Decimal
+import logging
+
+logger = logging.getLogger(__name__)
 
 def to_decimal(amount):
     """Convert user inputs to decimal values"""
@@ -27,7 +30,7 @@ class Account:
         self.balance = balance
         self.is_open = True
         
-        print(f'Account initialized successfully. {name} has ${balance} available')
+        logger.info('Account initialized for %s with balance $%s', name, balance)
         
     def deposit(self, amount):
         """Add money to the account"""
@@ -38,8 +41,7 @@ class Account:
             
         self.balance += amount
         
-        print(f'${amount} has been deposited successfully.')
-        print(f'{self.name} has a new balance of {self.balance}.')
+        logger.info('%s deposited $%s - new balance $%s', self.name, amount, self.balance)
         
     def withdraw(self, amount):
         """Withdraw money from the account"""
@@ -53,20 +55,21 @@ class Account:
         
         self.balance -= amount
         
-        print(f'${amount} has been withdrawn successfully.')
-        print(f'{self.name} has a new balance of {self.balance}.')
+        logger.info('%s withdrew $%s - new balance $%s', self.name, amount, self.balance)
         
     def show_balance(self):
         """Return current balance in the account"""
         
-        print(f'{self.name} has a balance of {self.balance}')
+        # unlike others this is intended to return to terminal
+        print(f'{self.name} has a balance of ${self.balance}')
         
     def close(self):
         """Close account. Must have zero balance to proceed."""
         
-        if self.balance > 0:
+        # change to requiring 0 - maybe I'll enable overdrafts at some point
+        if self.balance != 0:
             raise ValueError(f'Must have 0 balance to close account. Current balance is ${self.balance}.')
         
         self.is_open = False
         
-        print(f'Account for {self.name} has been closed successfully.')
+        logger.info('Account for %s has been closed successfully.', self.name)

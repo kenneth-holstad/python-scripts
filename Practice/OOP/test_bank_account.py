@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun 22 14:08:21 2026
-
-@author: kolst
 """
 
 import unittest
 from decimal import Decimal
 from bank_account import Account, to_decimal
-
-unittest.main(verbosity=2)
 
 class TestToDecimal(unittest.TestCase):
     """Tests for the standalone to_decimal helper function"""
@@ -77,3 +73,9 @@ class TestAccount(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+''' if you wanted higher test verbosity for some reason:
+import sys
+if __name__ == '__main__':
+    unittest.main(testRunner=unittest.TextTestRunner(stream=sys.stdout, verbosity=2))
+'''
